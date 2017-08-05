@@ -16,12 +16,13 @@ This is a web app designed to link people who need to find tradesmen for constru
 
 ## Build with
 
-* django - framework
+* django 1.11.4 - framework
+* python 2.7.13
 * HTML5  - frontend
 * CSS3 - frontend
 * Javascript - frontend
-* Bootstrap - responsive frontend
-* MongoDB - database
+* Bootstrap 3.3.7 - responsive frontend
+* SQLite - database
 * Stripe - to manage payments
 * GitHub - for version control
 

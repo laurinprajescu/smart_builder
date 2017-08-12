@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from smartbuilder_app import views
+from accounts import views as accounts_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^ineedatradesman$', views.ineed_atradesman),
     url(r'^iamatradesman$', views.iam_atradesman),
     url(r'^contact$', views.contact_page),
+    url(r'^register/$', accounts_views.register, name='register'),
 ]

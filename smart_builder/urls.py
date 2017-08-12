@@ -18,12 +18,16 @@ from django.contrib import admin
 from smartbuilder_app import views
 from accounts import views as accounts_views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home$', views.home_page),
-    url(r'^howitworks$', views.how_it_works_page),
-    url(r'^ineedatradesman$', views.ineed_atradesman),
-    url(r'^iamatradesman$', views.iam_atradesman),
-    url(r'^contact$', views.contact_page),
+    url(r'^home/$', views.home_page, name='home'),
+    url(r'^howitworks/$', views.how_it_works_page, name='howitworks'),
+    url(r'^ineedatradesman/$', views.ineed_atradesman, name='ineedatradesman'),
+    url(r'^iamatradesman/$', views.iam_atradesman, name='iamatradesman'),
+    url(r'^contact/$', views.contact_page, name='contact'),
     url(r'^register/$', accounts_views.register, name='register'),
+    url(r'^profile/$', accounts_views.profile, name='profile'),
+    url(r'^login/$', accounts_views.login, name='login'),
+    url(r'^logout/$', accounts_views.logout, name='logout'),
 ]

@@ -18,11 +18,11 @@
     <div class="container">
        <div class="masthead">
            <ul class="nav nav-pills pull-right">
-               <li><a href="#">Home</a></li>
-               <li><a href="#">How it works</a></li>
-               <li><a href="#">I need a tradesman</a></li>
-               <li><a href="#">I am a tradesman</a></li>
-               <li><a href="#">Contact</a></li>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'howitworks' %}">How it works</a></li>
+               <li><a href="{% url 'ineedatradesman' %}">I need a tradesman</a></li>
+               <li><a href="{% url 'iamatradesman' %}">I am a tradesman</a></li>
+               <li><a href="{% url 'contact' %}">Contact</a></li>
            </ul>
            <h1><span class="fui-settings-16 muted">SmartBuilder</span></h1>
        </div>

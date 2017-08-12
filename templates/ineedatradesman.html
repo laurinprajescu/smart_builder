@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content%}
     <h1>test ineed a tradesman page</h1>
+    <a href="{% url 'register' %}" class="btn btn-info" role="button">Register</a>
+    <a href="{% url 'login' %}" class="btn btn-info" role="button">Login</a>
+    <a href="{% url 'logout' %}">Log Out</a>
 {% endblock %}

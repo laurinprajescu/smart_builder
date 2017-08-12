@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class SmartbuilderConfig(AppConfig):
-    name = 'smartbuilder'
+    name = 'smartbuilder_app'

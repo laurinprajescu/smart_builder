@@ -1,0 +1,33 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+<body>
+    <div class="container">
+       <div class="masthead">
+           <ul class="nav nav-pills pull-right">
+               <li><a href="#">Home</a></li>
+               <li><a href="#">How it works</a></li>
+               <li><a href="#">I need a tradesman</a></li>
+               <li><a href="#">I am a tradesman</a></li>
+               <li><a href="#">Contact</a></li>
+           </ul>
+           <h1><span class="fui-settings-16 muted">Our Simple Site</span></h1>
+       </div>
+    </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>

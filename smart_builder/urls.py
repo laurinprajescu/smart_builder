@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^iamatradesman/$', views.iam_atradesman, name='iamatradesman'),
     url(r'^contact/$', views.contact_page, name='contact'),
     url(r'^register/$', accounts_views.register, name='register'),
+    url(r'^tradesmanregister/$', accounts_views.tradesman_register, name='tradesmanregister'),
     url(r'^profile/$', accounts_views.profile, name='profile'),
     url(r'^login/$', accounts_views.login, name='login'),
     url(r'^logout/$', accounts_views.logout, name='logout'),

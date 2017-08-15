@@ -74,7 +74,7 @@ def tradesman_register(request):
         if form.is_valid():
             try:
                 customer = stripe.Charge.create(
-                    amount=10,
+                    amount=1000,
                     currency="GBP",
                     description=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id'],

@@ -36,5 +36,5 @@ def new_job_post(request):
             job_post.save()
             return render(request, "postedjobs.html")
     else:
-        form = BlogPostForm()
+        form = JobPostForm()
     return render(request, 'newjobpost.html', {'form': form})

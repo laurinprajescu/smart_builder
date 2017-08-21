@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content%}
+    {% for job_post in job_posts %}
+        <div>
+            <div>
+                {{ job_post.published_date }}
+            </div>
+            <h1><a href="">{{ job_post.title }}</a></h1>
+            <p>{{ job_post.description|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -21,6 +21,7 @@ from accounts import views as accounts_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'',include('smartbuilder_app.urls')),
     url(r'^home/$', views.home_page, name='home'),
     url(r'^howitworks/$', views.how_it_works_page, name='howitworks'),
     url(r'^ineedatradesman/$', views.ineed_atradesman, name='ineedatradesman'),

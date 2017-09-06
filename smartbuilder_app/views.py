@@ -38,3 +38,8 @@ def new_job_post(request):
     else:
         form = JobPostForm()
     return render(request, 'newjobpost.html', {'form': form})
+
+
+
+# def own_job_post(request):
+    

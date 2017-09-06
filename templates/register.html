@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 {% block content %}
-    <form form_role="form" method="post" action="{% url 'register' %}">
-        <legend>Create a new account</legend>
+    <form method="post" action="{% url 'register' %}">
+        <legend>Post a new job</legend>
         {% csrf_token %}
         {% bootstrap_form form %}
         <div class="form-group">
-            <button button_type="submit" class="btn btn-primary">Create account</button>
+            <button type="submit" class="btn btn-primary">Create account</button>
         </div>
     </form>
 {% endblock %}

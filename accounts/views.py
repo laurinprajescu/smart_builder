@@ -37,9 +37,9 @@ def register(request):
     return render(request, 'register.html', args)
 
 @login_required(login_url='/login/')
+
 def profile(request):
     return render(request, 'profile.html')
-
 
 def login(request):
     if request.method == 'POST':
@@ -47,7 +47,6 @@ def login(request):
         if form.is_valid():
             user = auth.authenticate(email=request.POST.get('email'),
                                      password=request.POST.get('password'))
-
             if user is not None:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")

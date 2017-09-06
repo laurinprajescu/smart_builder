@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import PostAJob
 from .forms import JobPostForm
+
 
 def home_page(request):
     return render(request, "home.html")
@@ -42,4 +43,15 @@ def new_job_post(request):
 
 
 # def own_job_post(request):
-    
+
+
+def job_post_detail(request, id):
+    """
+    Create a view that return a single
+    Post object based on the post ID and
+    and render it to the 'postdetail.html'
+    template. Or return a 404 error if the
+    post is not found
+    """
+    job_posts = get_object_or_404(PostAJob, pk=id)
+    return render(request, "postedjobdetail.html", {'job_posts': job_posts})

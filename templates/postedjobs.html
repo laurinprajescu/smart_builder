@@ -2,11 +2,10 @@
 {% block content%}
     {% for job_post in job_posts %}
         <div>
-            <div>
-                {{ job_post.published_date }}
-            </div>
-            <h1><a href="">{{ job_post.title }}</a></h1>
-            <p>{{ job_post.description | linebreaks }}</p>
+            <h1>{{ job_post.title }}</h1>
+            <p>{{ job_post.description | linebreaks | truncatewords:30 }}</p>
+            <p><button class="btn btn-info" onclick="location.href={{ job_post.id }}"">Read More</button></p>
+            <p>{{ job_post.published_date }}</p>
         </div>
     {% endfor %}
 {% endblock %}

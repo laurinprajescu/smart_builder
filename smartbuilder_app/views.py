@@ -7,6 +7,8 @@ from .models import PostAJob
 from .forms import JobPostForm
 
 
+
+
 def home_page(request):
     return render(request, "home.html")
 
@@ -42,7 +44,10 @@ def new_job_post(request):
 
 
 
-# def own_job_post(request):
+def own_job_post(request):
+    
+    job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
+    return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
 
 
 def job_post_detail(request, id):
@@ -55,3 +60,27 @@ def job_post_detail(request, id):
     """
     job_posts = get_object_or_404(PostAJob, pk=id)
     return render(request, "postedjobdetail.html", {'job_posts': job_posts})
+
+def edit_job_post(request, job_post_id):
+   
+   job_post = get_object_or_404(PostAJob, pk=job_post_id)
+ 
+   if request.method == "POST":
+       form = JobPostForm(request.POST, instance=job_post)
+       if form.is_valid():
+           form.save()
+           messages.success(request, "You have updated your job!")
+ 
+           return redirect(reverse('postedjobdetail', args={thread.pk}))
+   else:
+       form = JobPostForm(instance=job_post)
+ 
+ 
+   args = {
+       'form' : form,
+       'form_action': reverse('newjobpost',  kwargs={"job_post_id": job_post.id}),
+       'button_text': 'Update Job'
+   }
+   args.update(csrf(request))
+ 
+   return render(request, 'newjobpost.html', args)

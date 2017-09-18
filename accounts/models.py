@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 from django.utils import timezone
 
-
 class AccountUserManager(UserManager):
     def _create_user(self, username, email, password,
                      is_staff, is_superuser, **extra_fields):
@@ -25,15 +24,13 @@ class AccountUserManager(UserManager):
 
         return user
 
-
 class User(AbstractUser):
-    # now that we've abstracted this class we can add any
-    # number of custom attribute to our user class
-
+    
     objects = AccountUserManager()
+    
 
 class TradesmanUser(User):
-
+   
     stripe_id = models.CharField(max_length=40, default='')
     objects = AccountUserManager()
-
+    

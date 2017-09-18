@@ -3,7 +3,9 @@
     <div>
         <h1>{{ job_posts.title }}</h1>
         <p>{{ job_posts.description | linebreaks }}</p>
-        <p><button class="btn btn-info" onclick="location.href='/postedjobs'">Back To Jobs</button></p>
-        <p>{{ job_posts.published_date }}</p>
+        <p><button class="btn btn-info" onclick="location.href='postedjobs'">Back To Jobs</button></p>
+        <p><button class="btn btn-info" onclick="location.href='editjobpost'">Edit Job</button></p>
+       	<p><button class="btn btn-info" onclick="location.href='deletejobpost'">Delete Job</button></p>
+      	<p>{{ job_posts.published_date }}</p>
     </div>
 {% endblock %}

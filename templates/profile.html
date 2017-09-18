@@ -2,10 +2,8 @@
 {% block content %}
     <h2>Success!</h2>
     <p>You are logged in as {{ user.email }} </p>
-
-
+   
     <a href="{% url 'newjobpost' %}" class="btn btn-info" role="button">Post a Job</a>
-  
-
+    
     <a href="{% url 'postedjobs' %}" class="btn btn-info" role="button">Posted Jobs</a>
 {% endblock %}

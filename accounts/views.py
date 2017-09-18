@@ -10,6 +10,9 @@ from django.conf import settings
 import datetime
 import stripe
 
+
+
+
 stripe.api_key = settings.STRIPE_SECRET
 
 def register(request):
@@ -53,7 +56,6 @@ def login(request):
                 return redirect(reverse('profile'))
             else:
                 form.add_error(None, "Your email or password was not recognised")
-
     else:
         form = UserLoginForm()
 

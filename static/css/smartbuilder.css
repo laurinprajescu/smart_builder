@@ -1,0 +1,15 @@
+body, html {
+    height: 100%;
+}
+.parallax { 
+	background-image: url("/static/images/smartbuilder_house.jpg");
+	height: 100%; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+p {
+	color: rgb(0,0,255);
+}

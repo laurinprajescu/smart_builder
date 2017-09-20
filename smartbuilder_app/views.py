@@ -29,12 +29,12 @@ def job_post_list(request):
               ).order_by('-published_date')
     return render(request, "postedjobs.html", {'job_posts': job_posts})
 
-def own_job_post(request):
-    if isinstance(request.user, User):
-        job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
-        return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
-    else:
-        return render(request,"home.html")
+# def own_job_post(request):
+#     if isinstance(request.user, User):
+#         job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
+#         return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
+#     else:
+#         return render(request,"home.html")
   
 
 # def own_job_post(request):

@@ -6,8 +6,11 @@ from django.utils import timezone
 from .models import PostAJob
 from .forms import JobPostForm
 from accounts.models import User, TradesmanUser
-
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.template.context_processors import csrf
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
 def home_page(request):
     return render(request, "home.html")
@@ -64,13 +67,7 @@ def new_job_post(request):
     return render(request, 'newjobpost.html', {'form': form})
 
 def job_post_detail(request, id):
-    """
-    Create a view that return a single
-    Post object based on the post ID and
-    and render it to the 'postdetail.html'
-    template. Or return a 404 error if the
-    post is not found
-    """
+   
     job_posts = get_object_or_404(PostAJob, pk=id)
     return render(request, "postedjobdetail.html", {'job_posts': job_posts})
 
@@ -85,14 +82,14 @@ def edit_job_post(request, job_post_id):
            form.save()
            messages.success(request, "You have updated your job!")
  
-           return redirect(reverse('postedjobdetail'))
+           return redirect(reverse('postedjobdetail', args={job_post.pk}))
    else:
        form = JobPostForm(instance=job_post)
  
  
    args = {
        'form' : form,
-       'form_action': reverse('edit_job_post',  kwargs={"job_post_id": job_post.id}),
+       'form_action': reverse('editjobpost',  kwargs={"job_post_id": job_post.id}),
        'button_text': 'Update Job'
    }
    args.update(csrf(request))

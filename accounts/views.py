@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import datetime
 import stripe
+from accounts.models import TradesmanUser
+from django.contrib.auth import get_user
+
 
 
 
@@ -40,9 +43,13 @@ def register(request):
     return render(request, 'register.html', args)
 
 @login_required(login_url='/login/')
-
 def profile(request):
-    return render(request, 'profile.html')
+    print get_user(request), get_user(request).is_tradesman()
+    if get_user(request).is_tradesman():
+        return render(request, 'profile.html')
+    else:
+        return redirect(reverse('home'))
+
 
 def login(request):
     if request.method == 'POST':

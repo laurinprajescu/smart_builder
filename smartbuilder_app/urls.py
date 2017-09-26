@@ -7,6 +7,8 @@ urlpatterns = [
     url(r'^postedjobs/(?P<id>\d+)/$', views.job_post_detail, name='postedjobdetail'),
     # url(r'^ownpostedjobs/$', views.own_job_post, name='ownpostedjobs'),
     url(r'^postedjobs/(?P<job_post_id>\d+)/editjobpost/$', views.edit_job_post, name='editjobpost'),
-    url(r'^newjobpost/delete/(?P<job_post_id>\d+)/$', views.delete_job_post, name='deletejobpost'),
+    url(r'^postedjobs/(?P<job_post_id>\d+)/deletejobpost$', views.delete_job_post, name='deletejobpost'),
+    url(r'^deletedjobpost/$', views.job_post_deleted, name='deletedjobpost'),
+
 ]
 

@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import PostAJob
 from .forms import JobPostForm
-from accounts.models import User, TradesmanUser
+# from accounts.models import User, TradesmanUser
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.template.context_processors import csrf
@@ -26,6 +26,9 @@ def iam_atradesman(request):
 
 def contact_page(request):
     return render(request, "contact.html")
+
+def job_post_deleted(request):
+    return render(request, "deletedjobpost.html")
 
 def job_post_list(request):
     job_posts = PostAJob.objects.filter(published_date__lte=timezone.now()
@@ -82,7 +85,7 @@ def edit_job_post(request, job_post_id):
            form.save()
            messages.success(request, "You have updated your job!")
  
-           return redirect(reverse('postedjobdetail', args={job_post.pk}))
+           return redirect(reverse('postedjobs'))
    else:
        form = JobPostForm(instance=job_post)
  
@@ -98,9 +101,9 @@ def edit_job_post(request, job_post_id):
 
 @login_required
 def delete_job_post(request, job_post_id):
-   job_post = get_object_or_404(Post, pk=job_post_id)
+   job_post = get_object_or_404(PostAJob, pk=job_post_id)
    job_post.delete()
  
    messages.success(request, "Your job post was deleted!")
  
-   return redirect(reverse('newjobpost', args={job_post_id}))
+   return redirect(reverse('deletedjobpost'))

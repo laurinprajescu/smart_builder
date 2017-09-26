@@ -26,9 +26,13 @@ class AccountUserManager(UserManager):
 
 class User(AbstractUser):
     
-    objects = AccountUserManager()
+    
     def is_tradesman(self):
-      return False
+      stripe_id = models.CharField(max_length=40, default='')
+      return True
+
+    objects = AccountUserManager()
+      
     
 
 class TradesmanUser(User):
@@ -37,4 +41,4 @@ class TradesmanUser(User):
     objects = AccountUserManager()
     def is_tradesman(self):
       return True
-    
+#     

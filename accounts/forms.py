@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from accounts.models import User,TradesmanUser
+from accounts.models import User
 from django.core.exceptions import ValidationError
 
 
@@ -46,6 +46,7 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 
+
 class TradesmanRegistrationForm(UserCreationForm):
     MONTH_ABBREVIATIONS = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June',
@@ -70,7 +71,7 @@ class TradesmanRegistrationForm(UserCreationForm):
     )
 
     class Meta:
-        model = TradesmanUser
+        model = User
         fields = ['email', 'password1', 'password2', 'stripe_id']
         exclude = ['username']
 

@@ -21,24 +21,12 @@ class AccountUserManager(UserManager):
                           date_joined=now, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
-
         return user
 
 class User(AbstractUser):
     
-    
-    def is_tradesman(self):
-      stripe_id = models.CharField(max_length=40, default='')
-      return True
-
-    objects = AccountUserManager()
-      
-    
-
-class TradesmanUser(User):
-   
     stripe_id = models.CharField(max_length=40, default='')
-    objects = AccountUserManager()
     def is_tradesman(self):
-      return True
-#     
+      return self.stripe_id != ''
+    objects = AccountUserManager()
+    

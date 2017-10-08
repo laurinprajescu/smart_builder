@@ -30,31 +30,17 @@ def contact_page(request):
 def job_post_deleted(request):
     return render(request, "deletedjobpost.html")
 
+def site_user_profile(request):
+    return render(request, "siteuserprofile.html")
+
 def job_post_list(request):
     job_posts = PostAJob.objects.filter(published_date__lte=timezone.now()
               ).order_by('-published_date')
     return render(request, "postedjobs.html", {'job_posts': job_posts})
 
-# def own_job_post(request):
-#     if isinstance(request.user, User):
-#         job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
-#         return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
-#     else:
-#         return render(request,"home.html")
-  
-
-# def own_job_post(request):
-#     job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
-#     return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
-
-# def is_tradesman(request, user):
-#     try:
-#         user.stripe_id
-#         return True 
-#     except:
-#         return False
-
-    
+def own_job_post(request):
+    job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
+    return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
 
 def new_job_post(request):
     if request.method == "POST":

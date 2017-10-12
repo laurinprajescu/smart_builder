@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content%}
-    <div>
+    <div class="content-wrapper">
         <h1>{{ job_posts.title }}</h1>
         <p>{{ job_posts.description | linebreaks }}</p>
-        <p><button class="btn btn-info" onclick="location.href='postedjobs'">Back To Jobs</button></p>
-        <p><button class="btn btn-info" onclick="location.href='editjobpost'">Edit Job</button></p>
-       	<p><button class="btn btn-info" onclick="location.href='deletejobpost'">Delete Job</button></p>
+        <a class="btn-draw" onclick="location.href='postedjobs'"><span>Back To Jobs</span></a>
+      	<a class="btn-draw" onclick="location.href='editjobpost'"><span>Edit Job</span></a>
+       	<a class="btn-draw" onclick="location.href='deletejobpost'"><span>Delete Job</span></a>
       	<p>{{ job_posts.published_date }}</p>
     </div>
 {% endblock %}

@@ -1,13 +1,7 @@
 {% load staticfiles %}
-{# Load the tag library #}
 {% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,19 +14,25 @@
     {% block head_js %}{% endblock %}
 </head>
 <body>
-    <div class="container">
-       <div class="masthead">
-           <ul class="nav nav-pills pull-right">
-               <li><a href="{% url 'home' %}">Home</a></li>
-               <li><a href="{% url 'howitworks' %}">How it works</a></li>
-               <li><a href="{% url 'ineedatradesman' %}">I need a tradesman</a></li>
-               <li><a href="{% url 'iamatradesman' %}">I am a tradesman</a></li>
-               <li><a href="{% url 'contact' %}">Contact</a></li>
-           </ul>
-           <h1><span class="fui-settings-16 muted">SmartBuilder</span></h1>
-       </div>
-    </div>
-    <div class="parallax"></div>        
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SmartBuilder</a>
+        </div>
+        <ul class="nav navbar-nav">
+           <li><a href="{% url 'home' %}">Home</a></li>
+           <li><a href="{% url 'howitworks' %}">How it works</a></li>
+           <li><a href="{% url 'ineedatradesman' %}">I need a tradesman</a></li>
+           <li><a href="{% url 'iamatradesman' %}">I am a tradesman</a></li>
+           <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="parallax"></div> 
 {% block content %}
 {% endblock %}
 </body>

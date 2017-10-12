@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="content-wrapper">
     <h2>Success!</h2>
     <p>You are logged in as {{ user.email }} </p>
-    <a href="{% url 'postedjobs' %}" class="btn btn-info" role="button">Posted Jobs</a>
+    <a class="btn-draw" href="{% url 'postedjobs' %}" role="button"><span>Posted Jobs</span></a>
+</div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content%}
     {% for job_post in job_posts %}
-        <div>
+        <div class="content-wrapper">
             <h1>{{ job_post.title }}</h1>
             <p>{{ job_post.description | linebreaks | truncatewords:30 }}</p>
-            <p><button class="btn btn-info" onclick="location.href={{ job_post.id }}"">Read More</button></p>
+            <a class="btn-draw" onclick="location.href={{ job_post.id }}""><span>Read More</span></a>
             <p>{{ job_post.published_date }}</p>
         </div>
     {% endfor %}

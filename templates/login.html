@@ -1,12 +1,29 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 {% block content %}
-    <form role="form" method="post" action="{% url 'login' %}">
-        <legend>Login</legend>
+<div class="content-wrapper">
+    <form method="post" action="{% url 'login' %}">
+    	{% csrf_token %}
+	    	<label>
+	    		<input type="email" name="email"  id="id_email" required autocomplete="off"/>
+	  			    <div class="label-text">Email</div>
+	    	</label>
+	    	<label>
+	  		    <input type="password" name="password"  id="id_password" required autocomplete="off"/>
+	  			    <div class="label-text">Password</div>
+			</label>
+			<button type="submit">Login</button> 
+    </form>
+</div>
+{% endblock %}
+
+
+
+
+
+<!-- <legend>Login</legend>
         {% csrf_token %}
         {% bootstrap_form form %}
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-    </form>
-{% endblock %}
+        </div> -->

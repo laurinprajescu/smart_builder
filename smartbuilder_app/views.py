@@ -50,7 +50,7 @@ def new_job_post(request):
             job_post.author = request.user
             job_post.published_date = timezone.now()
             job_post.save()
-            return render(request, "postedjobs.html")
+            return render(request, "ownpostedjobs.html")
     else:
         form = JobPostForm()
     return render(request, 'newjobpost.html', {'form': form})

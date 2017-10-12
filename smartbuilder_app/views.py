@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import PostAJob
@@ -11,6 +11,8 @@ from django.urls import reverse
 from django.template.context_processors import csrf
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
 
 def home_page(request):
     return render(request, "home.html")
@@ -32,6 +34,12 @@ def job_post_deleted(request):
 
 def site_user_profile(request):
     return render(request, "siteuserprofile.html")
+
+def success(request):
+    return render(request, "success.html")
+
+def choose(request):
+    return render(request, "choose.html")
 
 def job_post_list(request):
     job_posts = PostAJob.objects.filter(published_date__lte=timezone.now()
@@ -93,3 +101,21 @@ def delete_job_post(request, job_post_id):
    messages.success(request, "Your job post was deleted!")
  
    return redirect(reverse('deletedjobpost'))
+
+def email(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "email.html", {'form': form})
+
+

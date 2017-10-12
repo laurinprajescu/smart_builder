@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^postedjobs/(?P<job_post_id>\d+)/deletejobpost$', views.delete_job_post, name='deletejobpost'),
     url(r'^deletedjobpost/$', views.job_post_deleted, name='deletedjobpost'),
     url(r'^siteuserprofile/$', views.site_user_profile, name='siteuserprofile'),
+    url(r'^email/$', views.email, name='email'),
+    url(r'^success/$', views.success, name='success'),
+    url(r'^choose/$', views.choose, name='choose'),
 
 ]
 

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content%}
+<div class="content-wrapper">
+    <h1>Contact</h1>
+	<form method="post">
+    	{% csrf_token %}
+    	<label>
+        	<input type="email" name="from_email" required id="id_from_email">
+        	<div class="label-text">From email</div>
+    	</label>
+    	<label>
+        	<input type="text" name="subject" required id="id_subject">
+        	<div class="label-text">Subject</div>
+    	</label>
+    	<label>
+        	<legend class="description-title">mesage</legend>
+        	<textarea name="message" rows="10" title required cols="40" id="id_mesage"></textarea>
+        	<!-- <div class="label-text">Description</div> -->
+        </label>
+      <button type="submit">Send</button>
+</form>
+</div>
+{% endblock %}

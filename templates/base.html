@@ -17,19 +17,30 @@
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">SmartBuilder</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="sbNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">SmartBuilder</a>
         </div>
-        <ul class="nav navbar-nav">
-           <li><a href="{% url 'home' %}">Home</a></li>
-           <li><a href="{% url 'howitworks' %}">How it works</a></li>
-           <li><a href="{% url 'ineedatradesman' %}">I need a tradesman</a></li>
-           <li><a href="{% url 'iamatradesman' %}">I am a tradesman</a></li>
-           <li><a href="{% url 'email' %}">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="{% url 'choose' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="sbNavbar">
+          <ul class="nav navbar-nav">
+             <li class="active"><a href="{% url 'home' %}">HOME</a></li>
+             <li><a href="{% url 'howitworks' %}">HOW IT WORKS</a></li>
+             <li><a href="{% url 'ineedatradesman' %}">I NEED A TRADESMAN</a></li>
+             <li><a href="{% url 'iamatradesman' %}">I AM A TRADESMAN</a></li>
+             <li><a href="{% url 'email' %}">CONTACT</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'choose' %}"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+              <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="parallax"></div> 

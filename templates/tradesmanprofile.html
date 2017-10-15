@@ -4,5 +4,6 @@
     <h2>Success!</h2>
     <p>You are logged in as {{ user.email }} </p>
     <a class="btn-draw" href="{% url 'postedjobs' %}" role="button"><span>Posted Jobs</span></a>
+    <a class="btn-draw" href="{% url 'logout' %}" role="button"><span>Log Out</span></a>
 </div>
 {% endblock %}

@@ -2,16 +2,15 @@
 {% block content%}
     {% for job_post in job_posts %}
     <div class="content-wrapper">
-    	
         <div>
-            <div>
-                {{ job_post.published_date }}
-            </div>
-            <h1><a href="">{{ job_post.title }}</a></h1>
-            <p>{{ job_post.description | linebreaks }}</p>
+            {{ job_post.published_date }}
+        </div>
+        <h1><a href="">{{ job_post.title }}</a></h1>
+        <p>{{ job_post.description | linebreaks }}</p>
+        <a class="btn-draw" onclick="location.href='editjobpost'"><span>Edit Job</span></a>
+        <a class="btn-draw" onclick="location.href='deletejobpost'"><span>Delete Job</span></a>
         </div>
     </div>
-       
     {% endfor %}
 {% endblock %}
 

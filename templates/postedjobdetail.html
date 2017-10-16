@@ -3,9 +3,7 @@
     <div class="content-wrapper">
         <h1>{{ job_posts.title }}</h1>
         <p>{{ job_posts.description | linebreaks }}</p>
+        <a class="btn-draw" href="mailto: {{ job_posts.author.email }}" role="button"><span>Send Quote</span></a>
         <a class="btn-draw" onclick="location.href='postedjobs'"><span>Back To Jobs</span></a>
-      	<!-- <a class="btn-draw" onclick="location.href='editjobpost'"><span>Edit Job</span></a>
-       	<a class="btn-draw" onclick="location.href='deletejobpost'"><span>Delete Job</span></a> -->
-      	<p>{{ job_posts.published_date }}</p>
-    </div>
+		<p>Posted on: {{ job_posts.published_date }}</p>
 {% endblock %}

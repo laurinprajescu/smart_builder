@@ -7,8 +7,8 @@
         </div>
         <h1><a href="">{{ job_post.title }}</a></h1>
         <p>{{ job_post.description | linebreaks }}</p>
-        <a class="btn-draw" onclick="location.href='editjobpost'"><span>Edit Job</span></a>
-        <a class="btn-draw" onclick="location.href='deletejobpost'"><span>Delete Job</span></a>
+        <a class="btn-draw" href="{% url 'editjobpost' job_post.pk %}"><span>Edit Job</span></a>
+        <a class="btn-draw" href="{% url 'deletejobpost' job_post.pk %}"><span>Delete Job</span></a>
         </div>
     </div>
     {% endfor %}

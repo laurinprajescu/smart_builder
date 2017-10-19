@@ -211,3 +211,6 @@ button:hover, button:focus {
   padding-bottom: 40px;
 }
 
+#stripe-error-message {
+  color: white;
+}

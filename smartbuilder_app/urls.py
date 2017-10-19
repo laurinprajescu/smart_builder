@@ -13,6 +13,5 @@ urlpatterns = [
     url(r'^email/$', views.email, name='email'),
     url(r'^success/$', views.success, name='success'),
     url(r'^choose/$', views.choose, name='choose'),
-
 ]
 

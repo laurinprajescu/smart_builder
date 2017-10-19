@@ -48,6 +48,7 @@ def job_post_list(request):
 
 def own_job_post(request):
     job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
+    
     return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
 
 def new_job_post(request):
@@ -58,7 +59,7 @@ def new_job_post(request):
             job_post.author = request.user
             job_post.published_date = timezone.now()
             job_post.save()
-            return render(request, "ownpostedjobs.html")
+            return redirect(own_job_post)
     else:
         form = JobPostForm()
     return render(request, 'newjobpost.html', {'form': form})
@@ -81,7 +82,8 @@ def edit_job_post(request, job_post_id):
  
            return redirect(reverse('postedjobs'))
    else:
-       form = JobPostForm(instance=job_post)
+       # import pdb; pdb.set_trace() 
+       form = JobPostForm({'title': job_post.title, 'description': job_post.description}, instance=job_post)
  
  
    args = {

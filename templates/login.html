@@ -2,15 +2,15 @@
 {% load bootstrap3 %}
 {% block content %}
 <div class="content-wrapper">
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}" autocomplete="false">
     	{% csrf_token %}
 	    	<label>
-	    		<input type="email" name="email"  id="id_email" required autocomplete="off"/>
-	  			    <div class="label-text">Email</div>
+	    		<input type="email" name="email"  id="id_email" required>
+	  			<div class="label-text">Email</div>
 	    	</label>
 	    	<label>
-	  		    <input type="password" name="password"  id="id_password" required autocomplete="off"/>
-	  			    <div class="label-text">Password</div>
+	  		    <input type="password" name="password"  id="id_password" required>
+	  			<div class="label-text">Password</div>
 			</label>
 			<button type="submit">Login</button> 
     </form>

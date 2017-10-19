@@ -4,6 +4,6 @@
         <h1>{{ job_posts.title }}</h1>
         <p>{{ job_posts.description | linebreaks }}</p>
         <a class="btn-draw" href="mailto: {{ job_posts.author.email }}" role="button"><span>Send Quote</span></a>
-        <a class="btn-draw" onclick="location.href='postedjobs'"><span>Back To Jobs</span></a>
+        <a class="btn-draw" href="{% url 'postedjobs' %}"><span>Back To Jobs</span></a>
 		<p>Posted on: {{ job_posts.published_date }}</p>
 {% endblock %}

@@ -2,7 +2,6 @@
 {% load bootstrap3 %}
 {% block content %}
 <div class="content-wrapper">
-    <h1>New job post</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label>
@@ -12,7 +11,6 @@
         <label>
         	<legend class="description-title">DESCRIPTION</legend>
         	<textarea name="description" rows="10" title required cols="40" id="id_description"></textarea>
-        	<!-- <div class="label-text">Description</div> -->
         </label>
         <button type="submit">Save</button>
     </form>

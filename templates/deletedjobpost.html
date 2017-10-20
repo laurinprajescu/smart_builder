@@ -2,5 +2,8 @@
 {% block content %}
 <div class="content-wrapper">
 	<h1>your job was deleted</h1>
+	<a class="btn-draw" href="{% url 'newjobpost' %}" role="button"><span>Post a Job</span></a>
+    <a class="btn-draw" href="{% url 'ownpostedjobs' %}" role="button"><span>My Jobs</span></a>
+    <a class="btn-draw" href="{% url 'logout' %}" role="button"><span>Log Out</span></a>
 </div>
 {% endblock %}

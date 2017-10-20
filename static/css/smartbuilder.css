@@ -1,5 +1,6 @@
 body {
     background-color: #eeedec;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .parallax { 
@@ -136,11 +137,12 @@ label .label-text {
   font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
-  -moz-transform: translateY(-34px);
-  -ms-transform: translateY(-34px);
-  -webkit-transform: translateY(-34px);
-  transform: translateY(-34px);
+  -moz-transform: translateY(-90px);
+  -ms-transform: translateY(-90px);
+  -webkit-transform: translateY(-90px);
+  transform: translateY(-90px);
   transition: all 0.3s;
+
 }
 label input {
   background-color: transparent;
@@ -165,14 +167,14 @@ label input:focus + .label-text {
   -moz-transform: translateY(-74px);
   -ms-transform: translateY(-74px);
   -webkit-transform: translateY(-74px);
-  transform: translateY(-74px);
+  transform: translateY(-90px);
 }
 label input:valid + .label-text {
   font-size: 13px;
   -moz-transform: translateY(-74px);
   -ms-transform: translateY(-74px);
   -webkit-transform: translateY(-74px);
-  transform: translateY(-74px);
+  transform: translateY(-90px);
 }
 
 button {

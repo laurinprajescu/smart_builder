@@ -80,7 +80,7 @@ def edit_job_post(request, job_post_id):
            form.save()
            messages.success(request, "You have updated your job!")
  
-           return redirect(reverse('postedjobs'))
+           return redirect(reverse('postedjobs', args={job_post.pk}))
    else:
        # import pdb; pdb.set_trace() 
        form = JobPostForm({'title': job_post.title, 'description': job_post.description}, instance=job_post)

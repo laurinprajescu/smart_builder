@@ -123,6 +123,8 @@ nav {
 form {
   text-align: center;
   background-color: #333333;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 label {
@@ -213,6 +215,12 @@ button:hover, button:focus {
   padding-bottom: 40px;
 }
 
+
 #stripe-error-message {
-  color: white;
+  color: red;
+}
+
+#register-button {
+  padding-top: 20px;
+  
 }

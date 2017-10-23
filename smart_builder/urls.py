@@ -18,7 +18,6 @@ from django.contrib import admin
 from smartbuilder_app import views
 from accounts import views as accounts_views
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('smartbuilder_app.urls')),

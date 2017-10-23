@@ -2,7 +2,6 @@ body {
     background-color: #eeedec;
     font-family: 'Ubuntu', sans-serif;
 }
-
 .parallax { 
 	background-image: url("/static/images/smartbuilder_house.jpg");
 	height: 300px; 
@@ -11,11 +10,6 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
-p {
-	color: rgb(0,0,255);
-}
-
 .content-wrapper {
 	padding: 20px 50px 0px 50px;
 	border-left: 1px solid #cacaca;
@@ -28,7 +22,6 @@ p {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	text-align: center;
 }
-
 nav {
 	opacity: 0.7;
 }
@@ -119,14 +112,12 @@ nav {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
-
 form {
   text-align: center;
   background-color: #333333;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
 label {
   display: block;
   letter-spacing: 4px;
@@ -144,7 +135,6 @@ label .label-text {
   -webkit-transform: translateY(-90px);
   transform: translateY(-90px);
   transition: all 0.3s;
-
 }
 label input {
   background-color: transparent;
@@ -178,7 +168,6 @@ label input:valid + .label-text {
   -webkit-transform: translateY(-74px);
   transform: translateY(-90px);
 }
-
 button {
   background-color: #333333;
   border: 2px solid white;
@@ -197,7 +186,6 @@ button:hover, button:focus {
   color: #333333;
   outline: 0;
 }
-
 .description-title {
   display: block;
   letter-spacing: 4px;
@@ -209,18 +197,13 @@ button:hover, button:focus {
   line-height: 20px;
   text-transform: uppercase;
 }
-
 .arrow-wrapper {
   text-align: center;
   padding-bottom: 40px;
 }
-
-
 #stripe-error-message {
   color: red;
 }
-
 #register-button {
   padding-top: 20px;
-  
 }

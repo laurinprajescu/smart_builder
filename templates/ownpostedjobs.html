@@ -5,7 +5,7 @@
         <div>
             {{ job_post.published_date }}
         </div>
-        <h1><a href="">{{ job_post.title }}</a></h1>
+        <h1>{{ job_post.title }}</h1>
         <p>{{ job_post.description | linebreaks }}</p>
         <a class="btn-draw" href="{% url 'editjobpost' job_post.pk %}"><span>Edit Job</span></a>
         <a class="btn-draw" href="{% url 'deletejobpost' job_post.pk %}"><span>Delete Job</span></a>
@@ -13,5 +13,3 @@
     </div>
     {% endfor %}
 {% endblock %}
-
-

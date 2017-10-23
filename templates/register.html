@@ -1,32 +1,21 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
 {% block content %}
 <div class="content-wrapper">
     <form method="post" action="{% url 'register' %}">
-      {% csrf_token %}
+        {% csrf_token %}
         <label>
   	        <input type="email" name="email" title id="id_email" maxlength="254" required />
-  			        <div class="label-text">Email</div>
-		    </label>
-		    <label>
-  		      <input type="password" name="password1" title id="id_password1" required />
-  			       <div class="label-text">Password</div>
-		    </label>
-		    <label>
-  		      <input type="password" name="password2" title id="id_password2" required />
-  			       <div class="label-text">Password Confirmation</div>
-		    </label>
-		    <button type="submit">Create account</button>
+  			<div class="label-text">Email</div>
+		</label>
+		<label>
+  		    <input type="password" name="password1" title id="id_password1" required />
+  			<div class="label-text">Password</div>
+		</label>
+		<label>
+  		    <input type="password" name="password2" title id="id_password2" required />
+  			<div class="label-text">Password Confirmation</div>
+		</label>
+		<button type="submit">Create account</button>
     </form>
 </div>
 {% endblock %}
-
-
-
- <!-- {% bootstrap_form form %}
- -->        <!-- <div class="form-group">
-          <label>
-            <div class="label-text">First name</div>
-            <button type="submit" class="btn btn-primary">Create account</button>
-            </label>
-        </div> -->

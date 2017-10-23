@@ -4,7 +4,6 @@ from django.db import models
 from django.utils import timezone
 
 class PostAJob(models.Model):
-
     # author is linked to a registered
     # user, via the User model in the auth app.
     author = models.ForeignKey('accounts.User')
@@ -19,7 +18,3 @@ class PostAJob(models.Model):
 
     def __unicode__(self):
         return self.title
-
-
-
-

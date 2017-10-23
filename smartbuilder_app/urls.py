@@ -14,4 +14,3 @@ urlpatterns = [
     url(r'^success/$', views.success, name='success'),
     url(r'^choose/$', views.choose, name='choose'),
 ]
-

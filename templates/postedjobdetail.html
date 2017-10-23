@@ -6,4 +6,5 @@
         <a class="btn-draw" href="mailto: {{ job_posts.author.email }}" role="button"><span>Send Quote</span></a>
         <a class="btn-draw" href="{% url 'postedjobs' %}"><span>Back To Jobs</span></a>
 		<p>Posted on: {{ job_posts.published_date }}</p>
+	</div>
 {% endblock %}

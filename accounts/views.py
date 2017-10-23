@@ -9,12 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import datetime
 import stripe
-# from accounts.models import User, SiteUser, TradesmanUser
 from django.contrib.auth import get_user
-
-
-
-
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -23,33 +18,25 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-
             user = auth.authenticate(email=request.POST.get('email'),
                                      password=request.POST.get('password1'))
-
             if user:
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('home'))
-
             else:
                 messages.error(request, "unable to log you in at this time!")
-
     else:
         form = UserRegistrationForm()
-
     args = {'form': form}
     args.update(csrf(request))
-
     return render(request, 'register.html', args)
 
 @login_required(login_url='/login/')
-
 def profile(request):
     if request.user.is_tradesman():
         return render(request, 'tradesmanprofile.html')
     else:
         return redirect(reverse('siteuserprofile'))
-
 
 def login(request):
     if request.method == 'POST':
@@ -65,7 +52,6 @@ def login(request):
                 form.add_error(None, "Your email or password was not recognised")
     else:
         form = UserLoginForm()
-
     args = {'form': form}
     args.update(csrf(request))
     return render(request, 'login.html', args)
@@ -74,7 +60,6 @@ def logout(request):
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
     return redirect(reverse('home'))
-
 
 def tradesman_register(request):
     if request.method == 'POST':
@@ -101,12 +86,9 @@ def tradesman_register(request):
                     messages.error(request, "We were unable to take a payment with that card!")
             except stripe.error.CardError, e:
                 messages.error(request, "Your card was declined!")
-
     else:
         today = datetime.date.today()
         form = TradesmanRegistrationForm()
-
     args = {'form': form, 'publishable': settings.STRIPE_PUBLISHABLE}
     args.update(csrf(request))
-
     return render(request, 'tradesmanregister.html', args)

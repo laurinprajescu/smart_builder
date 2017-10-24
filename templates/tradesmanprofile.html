@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="content-wrapper">
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+    <p>You are logged in as {{ user.email }}<br>You can now browse jobs and send quotes!</p>
     <a class="btn-draw" href="{% url 'postedjobs' %}" role="button"><span>Posted Jobs</span></a>
     <a class="btn-draw" href="{% url 'logout' %}" role="button"><span>Log Out</span></a>
 </div>

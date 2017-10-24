@@ -207,3 +207,23 @@ button:hover, button:focus {
 #register-button {
   padding-top: 20px;
 }
+h1 {
+  text-align: center;
+}
+p {
+  font-size: 2em;
+}
+.howtoimg {
+  float: left;
+}
+.howto-wrapper {
+  padding-bottom: 50px;
+}
+.howto-link {
+  text-decoration: none;
+}
+.tips-list {
+  list-style-position:inside;
+  text-align: left;
+  font-size: 2em;
+}

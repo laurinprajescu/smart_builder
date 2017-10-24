@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<div class="content-wrapper">
-    <h1><img src="https://png.icons8.com/decision/color/96" title="Decision" width="96" height="96">test decide what you need.. a job done or someone to do the job</h1>
+<div class="content-wrapper howto-wrapper">
+    <p><img src="{% static "images/decision.png" %}" title="Decision" width="96" height="96" class="howtoimg">Make sure you know what you need: a job done or a ...job.</p>
 </div>
-<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}"/></div>
-<div class="content-wrapper">
-    <h1><img src="https://png.icons8.com/form/color/96" title="Form" width="96" height="96">fill the form in order to register register</h1>
+<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96" /></div>
+<div class="content-wrapper howto-wrapper">
+    <p><img src="{% static "images/form.png" %}" title="Form" width="96" height="96" class="howtoimg">If you need a job done go to <a href="{% url 'ineedatradesman' %}">I NEED A TRADESMAN</a> page and register.<br>If you look for a job go to <a href="{% url 'iamatradesman' %}">I AM A TRADESMAN</a> page and register.</p>
 </div>
-<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}"/></div>
+<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96"/></div>
 <div class="content-wrapper">
-    <h1><img src="https://png.icons8.com/job/color/96" title="Job" width="96" height="96">if you want a job to be done then after registering go ahead and psot a job and very soon you will get email with qoutes. If you are a tradesman just go ahead and search trough posted jobs, find one that suits you and send a quote.</h1>
+    <p><img src="{% static "images/job.png" %}" title="Job" width="96" height="96" class="howtoimg">After registration post a job and You'll get email notifications every time a tradesman express interest in your job or, if you are a tradesman go and see a list of jobs, choose the one that suits you and send a quote.</p>
 </div>
 {% endblock %}

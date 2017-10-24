@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="content-wrapper">
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+    <p>You are logged in as {{ user.email }}<br>We will always make sure you'll only receive realistic quotes from trusted people.<br>Tips:</p>
+    	<ul class="tips-list">
+			<li>To attract interest to your job give as many details about the job as you can</li>
+			<li>Never agree to pay upfront for a job</li>
+			<li>Always keep proof of payment and ask for invoice</li>
+			<li>If anything goes wrong <a href="{% url 'email' %}">CONTACT US</a> as soon as possible and we will advice you what steps to take further</li>
+		</ul>
     <a class="btn-draw" href="{% url 'newjobpost' %}" role="button"><span>Post a Job</span></a>
     <a class="btn-draw" href="{% url 'ownpostedjobs' %}" role="button"><span>My Jobs</span></a>
     <a class="btn-draw" href="{% url 'logout' %}" role="button"><span>Log Out</span></a>

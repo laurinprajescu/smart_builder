@@ -1,7 +1,5 @@
 {% load staticfiles %}
 {% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/smartbuilder.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
     {% block head_js %}{% endblock %}

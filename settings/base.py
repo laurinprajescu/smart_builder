@@ -12,11 +12,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 's&$he4gxaj*^aq6v!4o0=t50_md_$u1=^@6#40hsw2zdsecoem'
 
-
-
 ALLOWED_HOSTS = []
-
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -32,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+	'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -2,8 +2,6 @@ from base import *
 
 DEBUG = True
 
-# INSTALLED_APPS.append('debug_toolbar')
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-wrapper">
+        <div>
+        <p>You have no posted jobs at the moment!</p>
+        </br>
+        <p>Go ahead an post a job!</p>
+        <a class="btn-draw" href="{% url 'newjobpost' %}" role="button"><span>Post a Job</span></a>
+        </div>
+    </div>
+{% endblock %}

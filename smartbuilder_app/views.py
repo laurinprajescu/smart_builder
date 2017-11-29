@@ -39,16 +39,27 @@ def success(request):
 def choose(request):
     return render(request, "choose.html")
 
+def no_posted_jobs(request):
+    return render(request, "nopostedjobs.html")
+
+def job_list_empty(request):
+    return render(request, "joblistempty.html")
+
 def job_post_list(request):
     job_posts = PostAJob.objects.filter(published_date__lte=timezone.now()
               ).order_by('-published_date')
-    return render(request, "postedjobs.html", {'job_posts': job_posts})
+    if len(job_posts) > 0:
+        return render(request, "postedjobs.html", {'job_posts': job_posts})
+    else:
+        return redirect(reverse('joblistempty'))
 
 def own_job_post(request):
     job_posts = PostAJob.objects.filter(author=request.user).order_by('-published_date')
-    
-    return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
-
+    if len(job_posts) > 0:
+        return render(request, "ownpostedjobs.html", {'job_posts': job_posts})
+    else:
+        return redirect(reverse('nopostedjobs'))
+        
 def new_job_post(request):
     if request.method == "POST":
         form = JobPostForm(request.POST, request.FILES)
@@ -63,7 +74,6 @@ def new_job_post(request):
     return render(request, 'newjobpost.html', {'form': form})
 
 def job_post_detail(request, id):
-   
     job_posts = get_object_or_404(PostAJob, pk=id)
     return render(request, "postedjobdetail.html", {'job_posts': job_posts})
 

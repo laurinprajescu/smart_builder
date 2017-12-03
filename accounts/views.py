@@ -47,10 +47,10 @@ def login(request):
                                      password=request.POST.get('password'))
             if user is not None:
                 auth.login(request, user)
-                messages.error(request, "You have successfully logged in")
+                messages.error(request, "You have successfully logged in!")
                 return redirect(reverse('profile'))
             else:
-                form.add_error(None, "Your email or password was not recognised")
+                form.add_error(None, "Your email or password was not recognised!")
     else:
         form = UserLoginForm()
     args = {'form': form}
@@ -59,7 +59,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'You have successfully logged out')
+    messages.success(request, 'You have successfully logged out!')
     return redirect(reverse('home'))
 
 def tradesman_register(request):

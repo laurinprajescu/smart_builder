@@ -1,6 +1,7 @@
 body {
     background-color: #eeedec;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5em;
 }
 .parallax { 
 	background-image: url("/static/images/smartbuilder_house.jpg");
@@ -253,4 +254,21 @@ p {
 }
 #success-messages-wrapper {
   text-align: center;
+}
+@media (max-width: 767px) {
+  p {
+    font-size: 1em;
+  }
+  .btn-draw {
+    font-size: 1em;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  textarea {
+    width: 90%;
+  }
+  .howtoimg {
+    display: none;
+  }
 }

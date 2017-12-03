@@ -21,10 +21,11 @@ def register(request):
             user = auth.authenticate(email=request.POST.get('email'),
                                      password=request.POST.get('password1'))
             if user:
-                messages.success(request, "You have successfully registered")
+                auth.login(request, user)
+                messages.success(request, "You have successfully registered!")
                 return redirect(reverse('home'))
             else:
-                messages.error(request, "unable to log you in at this time!")
+                messages.error(request, "Unable to log you in at this time!")
     else:
         form = UserRegistrationForm()
     args = {'form': form}
@@ -78,10 +79,10 @@ def tradesman_register(request):
                                              password=request.POST.get('password1'))
                     if user:
                         auth.login(request, user)
-                        messages.success(request, "You have successfully registered")
+                        messages.success(request, "You have successfully registered!")
                         return redirect(reverse('home'))
                     else:
-                        messages.error(request, "unable to log you in at this time!")
+                        messages.error(request, "Unable to log you in at this time!")
                 else:
                     messages.error(request, "We were unable to take a payment with that card!")
             except stripe.error.CardError, e:

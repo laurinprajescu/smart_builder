@@ -117,6 +117,7 @@ form {
   background-color: #333333;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 label {
   display: block;
@@ -226,4 +227,30 @@ p {
   list-style-position:inside;
   text-align: left;
   font-size: 2em;
+}
+#tradesman-register-form {
+  width: 100%;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+#tradesman-register-form > p {
+  color: white;
+}
+#tradesman-register-form > p:nth-child(2) {
+  font-size: 1em;
+}
+.alert {
+  text-align: center;
+}
+.control-label {
+  color: white;
+}
+#register-message {
+  text-align: center;
+  font-size: 2em;
+  color: blue;
+}
+#success-messages-wrapper {
+  text-align: center;
 }

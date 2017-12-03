@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="content-wrapper">
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label>
-            {{ form.title }}
-        	<div class="label-text">Title</div>
-        </label>
-        <label>
-        	<legend class="description-title">DESCRIPTION</legend>
-        	{{ form.description }}
-        </label>
-        <button type="submit">Save</button>
-    </form>
-</div>
+    <div class="content-wrapper">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>
+                {{ form.title }}
+            	<div class="label-text">Title</div>
+            </label>
+            <label>
+            	<legend class="description-title">DESCRIPTION</legend>
+            	{{ form.description }}
+            </label>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 {% endblock %}

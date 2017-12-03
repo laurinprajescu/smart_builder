@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<div class="content-wrapper howto-wrapper">
-    <p><img src="{% static "images/decision.png" %}" title="Decision" width="96" height="96" class="howtoimg">Make sure you know what you need: a job done or a ...job.</p>
-</div>
-<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96" /></div>
-<div class="content-wrapper howto-wrapper">
-    <p><img src="{% static "images/form.png" %}" title="Form" width="96" height="96" class="howtoimg">If you need a job done go to <a href="{% url 'ineedatradesman' %}">I NEED A TRADESMAN</a> page and register.<br>If you look for a job go to <a href="{% url 'iamatradesman' %}">I AM A TRADESMAN</a> page and register.</p>
-</div>
-<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96"/></div>
-<div class="content-wrapper">
-    <p><img src="{% static "images/job.png" %}" title="Job" width="96" height="96" class="howtoimg">After registration post a job and You'll get email notifications every time a tradesman express interest in your job or, if you are a tradesman go and see a list of jobs, choose the one that suits you and send a quote.</p>
-</div>
+	<div class="content-wrapper howto-wrapper">
+	    <p><img src="{% static "images/decision.png" %}" title="Decision" width="96" height="96" class="howtoimg">Make sure you know what you need: a job done or a ...job.</p>
+	</div>
+	<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96" /></div>
+	<div class="content-wrapper howto-wrapper">
+	    <p><img src="{% static "images/form.png" %}" title="Form" width="96" height="96" class="howtoimg">If you need a job done go to <a href="{% url 'ineedatradesman' %}">I NEED A TRADESMAN</a> page and register.<br>If you look for a job go to <a href="{% url 'iamatradesman' %}">I AM A TRADESMAN</a> page and register.</p>
+	</div>
+	<div class="arrow-wrapper"><img src="{% static "images/down_arrow.png" %}" width="96" height="96"/></div>
+	<div class="content-wrapper">
+	    <p><img src="{% static "images/job.png" %}" title="Job" width="96" height="96" class="howtoimg">After registration post a job and You'll get email notifications every time a tradesman express interest in your job or, if you are a tradesman go and see a list of jobs, choose the one that suits you and send a quote.</p>
+	</div>
 {% endblock %}

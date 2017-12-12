@@ -1,13 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-	<div id="success-messages-wrapper">
-		{% if messages %}
-			{% for message in messages %}
-				<div id="register-message">{{ message|escape }}</div>
-			{% endfor %}
-			<a class="btn-draw" href="{% url 'profile' %}" role="button"><span>My profile</span></a>
-		{% endif %}
-	</div>
 	<div class="content-wrapper">
 		<h1>HOME</h1>
         <p>Make your home smile! For real! Whatever job you need to get done we will always find you the right tradesman. Here at SmartBuilder we don't do things different, we are just doing it better. We understand how valuable your time and money are and that is why at all times we aim to provide a fivestars customer experience regardless of how big or small your project is. That is why we handpick all the tradesmen registered with us because we want you to get the job done at the highest professional standards possible. All of our tradesmen are thoroughly checked by our team to make sure they have relevant proven experience and qualifications. They all must have relevant insurance as well. Find a tradesman for free!</p>

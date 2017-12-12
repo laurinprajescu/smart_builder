@@ -10,6 +10,7 @@ from django.conf import settings
 import datetime
 import stripe
 from django.contrib.auth import get_user
+from .models import User
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -17,15 +18,18 @@ def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = auth.authenticate(email=request.POST.get('email'),
-                                     password=request.POST.get('password1'))
-            if user:
-                auth.login(request, user)
-                messages.success(request, "You have successfully registered!")
-                return redirect(reverse('home'))
+            if User.objects.filter(email=form.cleaned_data['email']):
+                messages.error(request, "This email is already taken")
             else:
-                messages.error(request, "Unable to log you in at this time!")
+                form.save()
+                user = auth.authenticate(email=request.POST.get('email'),
+                                         password=request.POST.get('password1'))
+                if user:
+                    auth.login(request, user)
+                    messages.success(request, "You have successfully registered!")
+                    return redirect(reverse('home'))
+                else:
+                    messages.error(request, "Unable to log you in at this time!")
     else:
         form = UserRegistrationForm()
     args = {'form': form}
@@ -66,27 +70,30 @@ def tradesman_register(request):
     if request.method == 'POST':
         form = TradesmanRegistrationForm(request.POST)
         if form.is_valid():
-            try:
-                customer = stripe.Charge.create(
-                    amount=1000,
-                    currency="GBP",
-                    description=form.cleaned_data['email'],
-                    card=form.cleaned_data['stripe_id'],
-                )
-                if customer.paid:
-                    form.save()
-                    user = auth.authenticate(email=request.POST.get('email'),
-                                             password=request.POST.get('password1'))
-                    if user:
-                        auth.login(request, user)
-                        messages.success(request, "You have successfully registered!")
-                        return redirect(reverse('home'))
+            if User.objects.filter(email=form.cleaned_data['email']):
+                messages.error(request, "This email is already taken")
+            else:
+                try:
+                    customer = stripe.Charge.create(
+                        amount=1000,
+                        currency="GBP",
+                        description=form.cleaned_data['email'],
+                        card=form.cleaned_data['stripe_id'],
+                    )
+                    if customer.paid:
+                        form.save()
+                        user = auth.authenticate(email=request.POST.get('email'),
+                                                 password=request.POST.get('password1'))
+                        if user:
+                            auth.login(request, user)
+                            messages.success(request, "You have successfully registered!")
+                            return redirect(reverse('home'))
+                        else:
+                            messages.error(request, "Unable to log you in at this time!")
                     else:
-                        messages.error(request, "Unable to log you in at this time!")
-                else:
-                    messages.error(request, "We were unable to take a payment with that card!")
-            except stripe.error.CardError, e:
-                messages.error(request, "Your card was declined!")
+                        messages.error(request, "We were unable to take a payment with that card!")
+                except stripe.error.CardError, e:
+                    messages.error(request, "Your card was declined!")
     else:
         today = datetime.date.today()
         form = TradesmanRegistrationForm()

@@ -243,17 +243,13 @@ p {
 }
 .alert {
   text-align: center;
+  margin-top: 70px;
 }
 .control-label {
   color: white;
 }
-#register-message {
-  text-align: center;
-  font-size: 2em;
-  color: blue;
-}
-#success-messages-wrapper {
-  text-align: center;
+.post-wrapper {
+  display: inline-block;
 }
 @media (max-width: 767px) {
   p {
@@ -270,5 +266,9 @@ p {
   }
   .howtoimg {
     display: none;
+  }
+  .parallax {
+    background-image: none;
+    height: 70px;
   }
 }

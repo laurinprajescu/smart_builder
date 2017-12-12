@@ -9,6 +9,7 @@
             <p>{{ job_post.description | linebreaks }}</p>
             <a class="btn-draw" href="{% url 'editjobpost' job_post.pk %}"><span>Edit Job</span></a>
             <a class="btn-draw" href="{% url 'deletejobpost' job_post.pk %}"><span>Delete Job</span></a>
+            <a class="btn-draw" href="{% url 'newjobpost' %}" role="button"><span>Post a Job</span></a>
             </div>
         </div>
     {% endfor %}

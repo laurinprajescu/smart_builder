@@ -26,6 +26,7 @@ body {
 nav {
 	opacity: 0.7;
 }
+/* CSS for blue buttons - START */
 .btn-draw {
   margin-left: 20px;
   position: relative;
@@ -113,6 +114,7 @@ nav {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
+/* CSS for blue buttons - END */
 form {
   text-align: center;
   background-color: #333333;
@@ -250,6 +252,9 @@ p {
 }
 .post-wrapper {
   display: inline-block;
+}
+#home-text {
+  text-align: justify;
 }
 @media (max-width: 767px) {
   p {

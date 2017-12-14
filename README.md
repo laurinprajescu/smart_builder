@@ -10,24 +10,25 @@ This is a web app designed to link people who need to find tradesmen for constru
 
 * Home - contains a description of the app
 * How it works - which explains how the app works for both sides clients and tradesmen
-* I need a tradesman - the page where clients can post jobs
-* I am a tradesman - the page where tradesmen can look for jobs
+* I need a tradesman - the page where clients can register/login and post jobs
+* I am a tradesman - the page where tradesmen can register/login look for jobs
 * Contact - contains a contact form
 
 ## Build with
 
-* django - framework
+* Django - web framework
 * HTML5  - frontend
 * CSS3 - frontend
 * Javascript - frontend
-* Bootstrap - responsive frontend
+* Bootstrap3 - responsive frontend
 * SQLite - database
 * Stripe - to manage payments
-* GitHub - for version control
+* GitHub -  version control
+* Heroku -  hosting
 
 ## Deployment
 
-The app is deployed on Heroku
+The app is deployed on Heroku at https://smart-builder.herokuapp.com/
 
 ## Author
 
